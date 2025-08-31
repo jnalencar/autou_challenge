@@ -1,0 +1,10 @@
+/styles/*
+  Content-Type: text/css; charset=UTF-8
+
+/images/*
+  Content-Type: image/*
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

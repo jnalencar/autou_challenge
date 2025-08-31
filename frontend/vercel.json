@@ -8,6 +8,18 @@
   ],
   "routes": [
     {
+      "src": "/styles/(.*).(css|js)",
+      "headers": {
+        "Content-Type": "text/css; charset=UTF-8"
+      }
+    },
+    {
+      "src": "/images/(.*).(png|jpg|jpeg|gif|svg|ico)",
+      "headers": {
+        "Content-Type": "image/$1"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
