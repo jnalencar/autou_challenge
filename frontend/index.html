@@ -1,85 +1,93 @@
 <!doctype html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MVP • Upload de Email</title>
-  <style>
-    :root { --bg:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#94a3b8; --brand:#22d3ee; --ring:#22d3ee33; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell; background: radial-gradient(1200px 800px at 20% -10%, #1f2937, transparent), var(--bg); color: var(--ink); }
-    .wrap { max-width: 900px; margin: 48px auto; padding: 0 20px; }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); overflow: hidden; }
-    header { padding: 22px 24px; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; gap: 12px; }
-    header .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--brand); box-shadow: 0 0 18px var(--brand); }
-    header h1 { margin: 0; font-size: 18px; letter-spacing: .3px; }
-    .body { padding: 20px; display: grid; gap: 18px; }
-    label { font-size: 13px; color: var(--muted); letter-spacing: .2px; }
-    textarea { width: 100%; min-height: 180px; padding: 14px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(2,6,23,.6); color: var(--ink); resize: vertical; outline: none; }
-    textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--ring); }
-    .row { display: grid; gap: 12px; }
-    .two { grid-template-columns: 1fr; }
-    @media (min-width: 820px) { .two { grid-template-columns: 1fr 1fr; } }
-
-    .drop { border: 1.5px dashed rgba(255,255,255,.18); border-radius: 12px; padding: 18px; display: grid; gap: 8px; align-content: center; justify-items: center; text-align: center; background: rgba(2,6,23,.45); }
-    .drop.dragover { border-color: var(--brand); background: rgba(34,211,238,.06); box-shadow: 0 0 0 4px var(--ring); }
-    .drop small { color: var(--muted); }
-    .pill { font-size: 12px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.04); }
-
-    .actions { display: flex; gap: 10px; justify-content: flex-end; }
-    button { cursor: pointer; padding: 10px 14px; border-radius: 12px; background: var(--brand); color: #03202a; font-weight: 700; border: none; letter-spacing: .3px; }
-    button:focus { outline: 4px solid var(--ring); }
-    .ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,.18); }
-
-    .results { display: none; border-top: 1px dashed rgba(255,255,255,.12); padding: 16px 20px; background: rgba(2,6,23,.35); }
-    .results h3 { margin: 0 0 10px 0; font-size: 14px; color: var(--muted); }
-    .results pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: rgba(15,23,42,.6); border: 1px solid rgba(255,255,255,.06); padding: 12px; border-radius: 12px; }
-    .hint { font-size: 12px; color: var(--muted); }
-  </style>
+  <link rel="stylesheet" href="styles/index.css" />
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <header>
-        <div class="dot"></div>
-        <h1>MVP — Upload de Email (Texto ou Arquivo)</h1>
-      </header>
-
-      <form id="emailForm" class="body" autocomplete="off">
-        <div class="row">
-          <label for="emailText">Texto do email</label>
-          <textarea id="emailText" placeholder="Cole aqui o corpo do email ou solte um .txt na área ao lado..."></textarea>
-          <div class="hint">Aceite texto simples. Cabeçalhos (From/To/Subject) são opcionais.</div>
+  <div class="container">
+    <div class="glass-container">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/">jnalencar</a>
         </div>
-
-        <div class="row two">
+        <ul class="nav-links">
+          <li class="nav-link"><a href="/">Home</a></li>
+          <li class="nav-link"><a href="/projects.html">Projetos</a></li>
+          <li class="nav-link"><a href="/about.html">Sobre</a></li>
+        </ul>
+      </nav>
+      <div class="socials">
+        <ul class="nav-socials">
+          <li class="nav-social"><a href="https://github.com/jnalencar" target="_blank"><img
+                src="images/github-logo.png" alt=""></a></li>
+          <li class="nav-social"><a href="mailto:jonathannalencar@gmail.com" target="_blank"><img
+                src="images/gmail-logo.png" alt=""></a></li>
+          <li class="nav-social"><a href="https://www.linkedin.com/in/jnalencar/" target="_blank"><img
+                src="images/linkedin-logo.png" alt=""></a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <form id="emailForm" class="body" autocomplete="off">
           <div class="row">
-            <label>Anexar arquivo (.txt, .pdf ou .eml)</label>
-            <div id="drop" class="drop">
-              <div class="pill">Arraste e solte aqui</div>
-              <small>ou clique para selecionar</small>
-              <input id="fileInput" type="file" accept=".txt,.pdf,.eml" style="display:none" />
-              <div id="fileInfo" class="hint"></div>
+            <h2>Texto do email</h2>
+            <textarea id="emailText" placeholder="Cole aqui o corpo do email ou solte um .txt na área ao lado..."></textarea>
+            <div class="hint">Aceita texto simples. Cabeçalhos (From/To/Subject) são opcionais.</div>
+            <br>
+            <br>
+          </div>
+      
+          <div class="row two">
+            <div class="row">
+              <h3>Anexar arquivo (.txt, .pdf ou .eml)</h2>
+              <div id="drop" class="drop">
+                <div class="pill">Arraste e solte aqui</div>
+                <small>ou clique para selecionar</small>
+                <input id="fileInput" type="file" accept=".txt,.pdf,.eml" style="display:none" />
+                <div id="fileInfo" class="hint"></div>
+              </div>
+            </div>
+      
+            <div class="row">
+              <h3>Assunto (opcional)</h3>
+              <input id="subject" type="text" placeholder="   Ex.: Atualização sobre solicitação #12345"
+                style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(2,6,23,.6);color:var(--ink);outline:none; padding:18px 0px" />
             </div>
           </div>
-
-          <div class="row">
-            <label for="subject">Assunto (opcional)</label>
-            <input id="subject" type="text" placeholder="Ex.: Atualização sobre solicitação #12345" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(2,6,23,.6);color:var(--ink);outline:none" />
+      
+          <div class="actions">
+            <button type="button" class="ghost" id="clearBtn">Limpar</button>
+            <button type="submit">Processar</button>
           </div>
-        </div>
-
-        <div class="actions">
-          <button type="button" class="ghost" id="clearBtn">Limpar</button>
-          <button type="submit">Processar</button>
-        </div>
-
-        <div id="results" class="results">
-          <h3>Resposta do servidor</h3>
-          <pre id="payload"></pre>
-          <div class="hint">Dados simulados para teste. Na prática, o formulário já envia ao seu backend (FastAPI).</div>
-        </div>
-      </form>
+          <br>
+          <div id="results" class="results">
+            <div class="result-header">
+              <div class="status-indicator">
+                <span id="statusDot" class="status-dot"></span>
+                <span id="statusText" class="status-text"></span>
+              </div>
+            </div>
+            
+            <div class="response-content">
+              <h4>Sugestão de Resposta:</h4>
+              <div id="responseText" class="response-text"></div>
+            </div>
+            
+            <div id="errorSection" class="error-section" style="display: none;">
+              <h4>⚠️ Erro:</h4>
+              <div id="errorText" class="error-text"></div>
+            </div>
+            
+            <div class="hint">Análise realizada pela IA usando Google Gemini.</div>
+          </div>
+          <br>
+          <div class="attrebute"><img src="images/sign.png" alt=""></div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -91,8 +99,38 @@
     const subject = document.getElementById('subject');
     const form = document.getElementById('emailForm');
     const results = document.getElementById('results');
-    const payloadEl = document.getElementById('payload');
     const clearBtn = document.getElementById('clearBtn');
+
+    // Elementos da nova interface de resposta
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const responseText = document.getElementById('responseText');
+    const errorSection = document.getElementById('errorSection');
+    const errorText = document.getElementById('errorText');
+
+    function displayResponse(data) {
+      // Determina se é produtivo ou improdutivo
+      const isProductive = data.categoria && data.categoria.toLowerCase() === 'produtivo';
+      
+      // Atualiza o indicador de status
+      statusDot.className = `status-dot ${isProductive ? 'productive' : 'unproductive'}`;
+      statusText.textContent = data.categoria || 'Categoria não definida';
+      
+      // Exibe a resposta sugerida
+      if (data.resposta) {
+        responseText.textContent = data.resposta;
+      } else {
+        responseText.textContent = 'Nenhuma resposta foi gerada.';
+      }
+      
+      // Exibe erros apenas se existirem
+      if (data.erro && data.erro !== null) {
+        errorSection.style.display = 'block';
+        errorText.textContent = data.erro;
+      } else {
+        errorSection.style.display = 'none';
+      }
+    }
 
     const openPicker = () => fileInput.click();
 
@@ -100,8 +138,8 @@
 
     const prevent = e => { e.preventDefault(); e.stopPropagation(); };
 
-    ;['dragenter','dragover'].forEach(evt => drop.addEventListener(evt, e => { prevent(e); drop.classList.add('dragover'); }));
-    ;['dragleave','drop'].forEach(evt => drop.addEventListener(evt, e => { prevent(e); drop.classList.remove('dragover'); }));
+    ;['dragenter', 'dragover'].forEach(evt => drop.addEventListener(evt, e => { prevent(e); drop.classList.add('dragover'); }));
+    ;['dragleave', 'drop'].forEach(evt => drop.addEventListener(evt, e => { prevent(e); drop.classList.remove('dragover'); }));
 
     // Variável para armazenar arquivo selecionado via drag&drop
     let selectedFile = null;
@@ -121,8 +159,8 @@
       }
     });
 
-    function handleFile(file){
-      fileInfo.textContent = `${file.name} • ${(file.size/1024).toFixed(1)} KB • Arquivo será processado pelo backend`;
+    function handleFile(file) {
+      fileInfo.textContent = `${file.name} • ${(file.size / 1024).toFixed(1)} KB • Arquivo será processado pelo backend`;
       // Não preenche a caixa de texto - arquivo será processado internamente no backend
     }
 
@@ -135,30 +173,30 @@
       const file = selectedFile || fileInput.files?.[0] || null;
 
       const formData = new FormData();
-      
+
       // Sempre adiciona os campos, mesmo que vazios
       formData.append('body', bodyText);
       formData.append('subject', subj);
-      
+
       if (file) {
         formData.append('file', file);
       }
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/processar', { 
-          method: 'POST', 
-          body: formData 
+        const res = await fetch('http://127.0.0.1:8000/processar', {
+          method: 'POST',
+          body: formData
         });
-        
+
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}: ${res.statusText}`);
         }
-        
+
         const json = await res.json();
+        displayResponse(json);
         results.style.display = 'block';
-        payloadEl.textContent = JSON.stringify(json, null, 2);
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      } catch (err){
+      } catch (err) {
         console.error('Erro completo:', err);
         alert('Erro ao enviar para o backend: ' + err.message);
       }
@@ -171,8 +209,15 @@
       selectedFile = null;  // Limpa arquivo do drag&drop
       fileInfo.textContent = '';
       results.style.display = 'none';
-      payloadEl.textContent = '';
+      
+      // Limpa a nova interface de resposta
+      statusDot.className = 'status-dot';
+      statusText.textContent = '';
+      responseText.textContent = '';
+      errorSection.style.display = 'none';
+      errorText.textContent = '';
     });
   </script>
 </body>
+
 </html>
