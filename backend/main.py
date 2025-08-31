@@ -148,11 +148,11 @@ async def general_exception_handler(request: Request, exc: Exception):
 if __name__ == "__main__":
     import uvicorn
     print("🚀 Para iniciar o servidor, use:")
-    print("uvicorn main_secure:app --reload")
+    print("uvicorn main:app --reload")
     print(f"📍 URL: http://127.0.0.1:8000")
     print(f"📖 Docs: http://127.0.0.1:8000/docs")
     
     # Inicia automaticamente se executado diretamente
     uvicorn.run(
-        "main_secure:app", host="127.0.0.1", port=8000, reload=True
+        "main:app", host="127.0.0.1", port=8000, reload=True
     )
