@@ -47,7 +47,7 @@ email_controller = container.email_controller
 @app.get("/")
 async def health_check():
     """Endpoint de verificação de saúde"""
-    return {"status": "ok", "message": "Email Processor API is running"}
+    return {"status": "ok", "message": "Tudo ok por aqui 👍 (ainda)"}
 
 @app.get("/health")
 async def health():

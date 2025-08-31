@@ -93,20 +93,20 @@ python main.py
 cd ../frontend
 
 # Abra o arquivo index.html em um servidor local
-# Opção 1 - Python:
+
+# Opção 1 - VS Code Live Server (Mais utilizado durante os testes)
+# Clique direito no index.html > "Open with Live Server"
+
+# Opção 2 - Python:
 python -m http.server 5500
 
-# Opção 2 - Node.js (se tiver instalado):
+# Opção 3 - Node.js (se tiver instalado):
 npx serve .
-
-# Opção 3 - VS Code Live Server
-# Clique direito no index.html > "Open with Live Server"
 ```
 
 ### Passo 6: Acesse a Aplicação
 - **Backend API**: http://127.0.0.1:8000
 - **Frontend**: http://127.0.0.1:5500
-- **Documentação API**: http://127.0.0.1:8000/docs (apenas em desenvolvimento)
 
 ## 🔒 Configuração de Segurança
 
@@ -157,17 +157,8 @@ python -c "import secrets; print('JWT_SECRET_KEY=' + secrets.token_urlsafe(32))"
 ### Usando curl:
 ```bash
 # Teste simples
-curl -X POST "http://127.0.0.1:8000/processar" \
-  -F "body=Olá, preciso de ajuda com meu pedido" \
-  -F "subject=Solicitação de suporte"
-
-# Upload de arquivo
-curl -X POST "http://127.0.0.1:8000/processar" \
-  -F "file=@email.eml" \
-  -F "subject=Email importado"
+curl.exe  -X POST "http://127.0.0.1:8000/processar" -F "body=Olá, preciso de ajuda com meu pedido" -F "subject=Solicitação de suporte"
 ```
-
-
 ## 🔧 Configuração para Produção
 
 ### 1. Configure variáveis de ambiente:
