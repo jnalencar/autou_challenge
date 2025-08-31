@@ -63,4 +63,10 @@ class NLTKTextProcessor(TextProcessorInterface):
             try:
                 nltk.data.find(resource_path)
             except LookupError:
-                nltk.download(resource_name)
+                try:
+                    print(f"📥 Baixando recurso NLTK: {resource_name}")
+                    nltk.download(resource_name, quiet=True)
+                except Exception as e:
+                    print(f"⚠️ Erro ao baixar {resource_name}: {e}")
+                    # Continua mesmo se não conseguir baixar
+                    pass
