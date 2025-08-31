@@ -108,6 +108,11 @@
     const errorSection = document.getElementById('errorSection');
     const errorText = document.getElementById('errorText');
 
+    // URL da API - trocar para produção
+    const API_URL = window.location.hostname === 'localhost' 
+      ? 'http://127.0.0.1:8000' 
+      : 'https://jnalencarautoufe.vercel.app';
+
     function displayResponse(data) {
       // Determina se é produtivo ou improdutivo
       const isProductive = data.categoria && data.categoria.toLowerCase() === 'produtivo';
@@ -183,7 +188,7 @@
       }
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/processar', {
+        const res = await fetch(`${API_URL}/processar`, {
           method: 'POST',
           body: formData
         });
