@@ -82,19 +82,9 @@ cp .env.example .env
 
 ### Passo 4: Execute a Aplicação
 
-**Opção 1 - Versão Segura (Recomendada):**
 ```bash
-python main_secure.py
-```
-
-**Opção 2 - Versão Limpa (Clean Architecture):**
-```bash
-python main_clean.py
-```
-
-**Opção 3 - Versão Original (Backup):**
-```bash
-python main_legacy.py
+cd backend
+python main.py
 ```
 
 ### Passo 5: Configure o Frontend
@@ -223,10 +213,7 @@ pip install python-dotenv
 ## 📋 Scripts Disponíveis
 
 - `python setup.py` - Configuração inicial automática
-- `python migrate.py` - Migração de arquitetura (já executado)
-- `python main_secure.py` - Executa versão segura
-- `python main_clean.py` - Executa versão com Clean Architecture
-- `python main_legacy.py` - Executa versão original
+- `python main.py` - Executa a aplicação
 
 ## 📚 Documentação Adicional
 

@@ -26,7 +26,7 @@ GEMINI_API_KEY=sua_api_key_aqui
 ### 3. Execute
 ```bash
 # Execute o backend
-python main_secure.py
+python main.py
 ```
 
 ### 4. Abra o Frontend

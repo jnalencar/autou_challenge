@@ -12,7 +12,7 @@ pip install -r requirements.txt
 python setup.py
 
 # Execute a aplicação
-python main_secure.py
+python main.py
 ```
 
 ## 📁 Estrutura do Backend
@@ -24,9 +24,7 @@ backend/
 │   ├── application/       # Casos de uso
 │   ├── infrastructure/    # Implementações
 │   └── presentation/      # Controllers e modelos
-├── main_secure.py         # Aplicação segura (recomendada)
-├── main_clean.py          # Versão Clean Architecture
-├── main_legacy.py         # Versão original (backup)
+├── main.py               # Aplicação principal
 ├── config.py              # Configurações
 ├── .env                   # Variáveis de ambiente (configure!)
 └── requirements.txt       # Dependências

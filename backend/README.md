@@ -49,11 +49,7 @@ nano .env
 
 4. Execute a aplicação:
 ```bash
-# Versão segura (recomendada)
-python main_secure.py
-
-# Ou versão original
-python main_legacy.py
+python main.py
 ```
 
 ## � Configuração de Segurança
