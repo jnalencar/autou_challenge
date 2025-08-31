@@ -166,7 +166,6 @@ if __name__ == "__main__":
     print("🚀 Para iniciar o servidor, use:")
     print("uvicorn main:app --reload")
     print(f"📍 URL: http://127.0.0.1:8000")
-    print(f"📖 Docs: http://127.0.0.1:8000/docs")
     
     # Inicia automaticamente se executado diretamente
     uvicorn.run(

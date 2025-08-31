@@ -84,15 +84,10 @@ curl -X POST "http://127.0.0.1:8000/processar" \
   -F "subject=Assunto do teste"
 ```
 
-### Via Documentação:
-Acesse: http://127.0.0.1:8000/docs
 
 ## 📚 Documentação Completa
 
 - **[README Principal](../README.md)** - Tutorial completo
-- **[QUICKSTART](../QUICKSTART.md)** - Início em 5 minutos
-- **[SECURITY.md](SECURITY.md)** - Guia de segurança
-- **[REFACTORING_SUMMARY.md](REFACTORING_SUMMARY.md)** - Resumo da refatoração
 
 ## 🆘 Solução de Problemas
 

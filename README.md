@@ -167,8 +167,6 @@ curl -X POST "http://127.0.0.1:8000/processar" \
   -F "subject=Email importado"
 ```
 
-### Usando a documentação interativa:
-Acesse http://127.0.0.1:8000/docs para testar os endpoints diretamente no navegador.
 
 ## 🔧 Configuração para Produção
 
@@ -215,12 +213,6 @@ pip install python-dotenv
 - `python setup.py` - Configuração inicial automática
 - `python main.py` - Executa a aplicação
 
-## 📚 Documentação Adicional
-
-- **SECURITY.md** - Guia completo de segurança
-- **SECURITY_IMPLEMENTATION.md** - Detalhes das implementações
-- **REFACTORING_SUMMARY.md** - Resumo da refatoração
-
 ## 🏛️ Princípios Aplicados
 
 ### Clean Code
@@ -241,11 +233,3 @@ pip install python-dotenv
 - Dependências apontam para dentro
 - Camadas bem definidas
 - Testabilidade alta
-
-## 📞 Suporte
-
-Para dúvidas ou problemas:
-1. Consulte a documentação em `SECURITY.md`
-2. Verifique os logs de erro
-3. Execute `python setup.py` para reconfigurar
-4. Crie uma issue no repositório
