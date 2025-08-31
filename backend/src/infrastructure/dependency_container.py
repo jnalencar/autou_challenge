@@ -1,4 +1,4 @@
-from .external.nltk_text_processor import NLTKTextProcessor
+from .external.hybrid_processor import HybridTextProcessor
 from .external.gemini_ai_service import GeminiAIService
 from .parsers.file_parser_factory import FileParserFactory
 from ..application.use_cases.process_email_use_case import ProcessEmailUseCase
@@ -12,7 +12,7 @@ class DependencyContainer:
         try:
             # Infraestrutura
             print("🔧 Inicializando processador de texto...")
-            self._text_processor = NLTKTextProcessor()
+            self._text_processor = HybridTextProcessor()
             
             print("🤖 Inicializando serviço de IA...")
             self._ai_service = GeminiAIService(gemini_api_key)
@@ -47,7 +47,7 @@ class DependencyContainer:
         return self._email_controller
     
     @property
-    def text_processor(self) -> NLTKTextProcessor:
+    def text_processor(self) -> HybridTextProcessor:
         """Retorna o processador de texto"""
         return self._text_processor
     

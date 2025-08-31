@@ -43,6 +43,22 @@ app.add_middleware(
 # Injeta o controller
 email_controller = container.email_controller
 
+# Health check endpoint
+@app.get("/")
+async def health_check():
+    """Endpoint de verificação de saúde"""
+    return {"status": "ok", "message": "Email Processor API is running"}
+
+@app.get("/health")
+async def health():
+    """Endpoint de verificação de saúde detalhado"""
+    return {
+        "status": "healthy",
+        "service": "Email Processor API",
+        "version": "2.0.0",
+        "debug": api.DEBUG
+    }
+
 # Handler para validação de arquivos
 async def validate_uploaded_file(file: UploadFile):
     """Valida arquivo antes do processamento"""
