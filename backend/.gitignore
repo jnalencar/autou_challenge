@@ -75,3 +75,4 @@ Desktop.ini
 # ===== CONFIGURAÇÕES LOCAIS =====
 local_settings.py
 settings_local.py
+.vercel
