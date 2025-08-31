@@ -2,20 +2,17 @@ import time
 from typing import Dict, Optional
 from fastapi import Request, HTTPException, status
 from fastapi.responses import JSONResponse
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
-from slowapi.errors import RateLimitExceeded
+from starlette.middleware.base import BaseHTTPMiddleware
 
-# Rate limiting storage
-limiter = Limiter(key_func=get_remote_address)
 
-class SecurityMiddleware:
+class SecurityMiddleware(BaseHTTPMiddleware):
     """Middleware de segurança personalizado"""
     
-    def __init__(self):
+    def __init__(self, app):
+        super().__init__(app)
         self.request_counts: Dict[str, Dict[str, int]] = {}
     
-    async def __call__(self, request: Request, call_next):
+    async def dispatch(self, request: Request, call_next):
         """Processa requisições aplicando verificações de segurança"""
         
         # 1. Verifica tamanho do corpo da requisição
@@ -116,13 +113,13 @@ class FileSecurityValidator:
         
         return True
 
-def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded):
+def rate_limit_exceeded_handler(request: Request, exc: Exception):
     """Handler personalizado para rate limit excedido"""
     return JSONResponse(
         status_code=status.HTTP_429_TOO_MANY_REQUESTS,
         content={
             "error": "Rate limit excedido",
-            "detail": f"Muitas requisições. Tente novamente em {exc.retry_after} segundos.",
-            "retry_after": exc.retry_after
+            "detail": "Muitas requisições. Tente novamente mais tarde.",
+            "retry_after": 60
         }
     )

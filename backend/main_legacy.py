@@ -12,7 +12,7 @@ from PyPDF2 import PdfReader
 import dotenv
 import os
 
-genai.configure(api_key=GEMINI_API_KEY)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Baixar os recursos necessários do NLTK
