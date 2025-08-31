@@ -109,7 +109,7 @@
     const errorText = document.getElementById('errorText');
 
     // URL da API - trocar para produção
-    const API_URL = window.location.hostname === 'localhost' 
+    const API_URL = window.location.hostname === 'localhost' || '127.0.0.1' 
       ? 'http://127.0.0.1:8000' 
       : 'https://autoube.vercel.app';
 
